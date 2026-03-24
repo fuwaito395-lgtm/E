@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 305b23a7b56077c47832ecabc2bb9999, type: 3}
+  m_Name: "\u7126\u5316"
+  m_EditorClassIdentifier: 
+  "\u602A\u7269Id": 1
+  harm: 2
+  "\u663E\u793A\u540D": "\u7126\u5316\u5C11\u5973"
+  totalwork: 12
+  "\u66B4\u6012":
+  - 30
+  - 30
+  - 40
+  - 60
+  - 80
+  "\u7EB5\u6B32":
+  - 60
+  - 50
+  - 40
+  - 40
+  - 40
+  "\u6020\u60F0":
+  - 10
+  - 10
+  - 10
+  - 10
+  - 20
+  "\u8D2A\u5A6A":
+  - 50
+  - 55
+  - 60
+  - 65
+  - 70
+  "\u7A7A\u865A":
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  "\u50B2\u6162":
+  - 10
+  - 10
+  - 10
+  - 10
+  - 15
+  "\u5AC9\u5992":
+  - 50
+  - 55
+  - 60
+  - 65
+  - 75
+  "\u5DE5\u4F5C\u7ED3\u679C": 050000000700000009000000
+  damegatyp: 0
+  baseworksp: 3
+  mindamega: 2
+  maxdamega: 3
+  "\u9ED8\u8BA4\u673A\u5236\u5217\u8868":
+  - {fileID: 11400000, guid: d30678a076734eb40b39d3a24444aa22, type: 2}
+  "\u51FA\u9003max": 1
+  maxlhp: 250
+  attacks:
+  - {fileID: 11400000, guid: 3b7c636f418acdf4fa73985a05b50784, type: 2}
+  "\u6F2B\u6E38":
+  - {fileID: 11400000, guid: e9664245c00ef7d4b82447f647b56723, type: 2}
+  intialmovespeedl: 4
+  maxprop: 1
+  "\u89C6\u56FEPrefab": {fileID: 837440900606284854, guid: b09091f28b2deb84ea33c1ab01d92bdb, type: 3}
+  beforegoout: {fileID: 0}
+  aftergoout: {fileID: 21300000, guid: 0a7711c014417b5498a5623ebba23030, type: 3}
