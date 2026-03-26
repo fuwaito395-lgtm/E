@@ -84,7 +84,7 @@ public class 怪物漫游
                 var spr = movedata.关联对象.GetComponent<SpriteRenderer>();
 
                 spr.sprite = movedata.nowatt.beforeatt;
-
+                movedata.aud.PlayOneShot(movedata.nowatt.beforeaud);
                 movedata.stoptime += movedata.nowatt.windup;
                 movedata.怪物漫游运行时[movedata.nowLtype].Onwindup();//时机
                 movedata.allattttimel = allatttime.windup;
@@ -106,7 +106,7 @@ public class 怪物漫游
         var spr = movedata.关联对象.GetComponent<SpriteRenderer>();
 
         spr.sprite = movedata.nowatt.afteratt;
-
+        movedata.aud.PlayOneShot(movedata.nowatt.afteraud);
         // 这里才是真正“命中”的时机
         movedata.怪物漫游运行时[movedata.nowLtype].Onhitrange(movedata.关联对象, movedata);
 

@@ -7,7 +7,7 @@ public class 条 : MonoBehaviour
 {
    
     public static 条 instance;
-    private float x=0;
+    private float x=1;
     private void Awake()
     {
         
@@ -16,11 +16,12 @@ public class 条 : MonoBehaviour
     public void whenworkdone()
     {
         x = this.transform.localScale.x+1;
-        if (x == 2)
+        if (x == 10)
         {
             收容系统.Instance.条满();
         }
         else
+            Debug.Log("inc");
         {
             this.transform.localScale = new Vector3(x, 1, 1);
         }

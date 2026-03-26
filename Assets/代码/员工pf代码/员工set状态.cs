@@ -66,7 +66,6 @@ public class 员工set状态 : MonoBehaviour
         }
         else if (Datapfset.Data.currentState == 人数据列表.ren.state.att)
         {
-            
             at.attupdate();
         }
     }

@@ -3406,8 +3406,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 84.365204, y: 173.3}
-  m_SizeDelta: {x: 160.0893, y: 54.502}
+  m_AnchoredPosition: {x: 37.71399, y: 166.6}
+  m_SizeDelta: {x: 75.42731, y: 34.2986}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &543730774
 MonoBehaviour:
@@ -3832,6 +3832,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   "\u6240\u6709\u6B66\u5668":
   - {fileID: 11400000, guid: 372e1ad3cad96da4d9d5cf78a7d92603, type: 2}
+  - {fileID: 11400000, guid: 79d3ce173d7d2fb4b9da7bdd5c6a8177, type: 2}
 --- !u!4 &583495334
 Transform:
   m_ObjectHideFlags: 0
@@ -5017,6 +5018,8 @@ MonoBehaviour:
                       roomren: []
                       allattttimel: 0
                       "\u8840\u6761": {fileID: 0}
+                      spriter: {fileID: 0}
+                      aud: {fileID: 0}
                       bloodtext: {fileID: 0}
                       nametext: {fileID: 0}
                       bloodphycis: {fileID: 0}
@@ -5045,6 +5048,8 @@ MonoBehaviour:
                   roomren: []
                   allattttimel: 0
                   "\u8840\u6761": {fileID: 0}
+                  spriter: {fileID: 0}
+                  aud: {fileID: 0}
                   bloodtext: {fileID: 0}
                   nametext: {fileID: 0}
                   bloodphycis: {fileID: 0}
@@ -5073,6 +5078,8 @@ MonoBehaviour:
               roomren: []
               allattttimel: 0
               "\u8840\u6761": {fileID: 0}
+              spriter: {fileID: 0}
+              aud: {fileID: 0}
               bloodtext: {fileID: 0}
               nametext: {fileID: 0}
               bloodphycis: {fileID: 0}
@@ -5101,6 +5108,8 @@ MonoBehaviour:
           roomren: []
           allattttimel: 0
           "\u8840\u6761": {fileID: 0}
+          spriter: {fileID: 0}
+          aud: {fileID: 0}
           bloodtext: {fileID: 0}
           nametext: {fileID: 0}
           bloodphycis: {fileID: 0}
@@ -5129,6 +5138,8 @@ MonoBehaviour:
       roomren: []
       allattttimel: 0
       "\u8840\u6761": {fileID: 0}
+      spriter: {fileID: 0}
+      aud: {fileID: 0}
       bloodtext: {fileID: 0}
       nametext: {fileID: 0}
       bloodphycis: {fileID: 0}
@@ -5155,7 +5166,7 @@ MonoBehaviour:
     "\u6C89\u9759": 0
     "\u6B63\u4E49": 0
     "\u5BBD\u5BB9": 0
-    egoatt: 0
+    egoatt: 1
     egoarmor: 0
     ego: 0
     nextwork: 0
@@ -5212,6 +5223,8 @@ MonoBehaviour:
                       roomren: []
                       allattttimel: 0
                       "\u8840\u6761": {fileID: 0}
+                      spriter: {fileID: 0}
+                      aud: {fileID: 0}
                       bloodtext: {fileID: 0}
                       nametext: {fileID: 0}
                       bloodphycis: {fileID: 0}
@@ -5240,6 +5253,8 @@ MonoBehaviour:
                   roomren: []
                   allattttimel: 0
                   "\u8840\u6761": {fileID: 0}
+                  spriter: {fileID: 0}
+                  aud: {fileID: 0}
                   bloodtext: {fileID: 0}
                   nametext: {fileID: 0}
                   bloodphycis: {fileID: 0}
@@ -5268,6 +5283,8 @@ MonoBehaviour:
               roomren: []
               allattttimel: 0
               "\u8840\u6761": {fileID: 0}
+              spriter: {fileID: 0}
+              aud: {fileID: 0}
               bloodtext: {fileID: 0}
               nametext: {fileID: 0}
               bloodphycis: {fileID: 0}
@@ -5296,6 +5313,8 @@ MonoBehaviour:
           roomren: []
           allattttimel: 0
           "\u8840\u6761": {fileID: 0}
+          spriter: {fileID: 0}
+          aud: {fileID: 0}
           bloodtext: {fileID: 0}
           nametext: {fileID: 0}
           bloodphycis: {fileID: 0}
@@ -5324,6 +5343,8 @@ MonoBehaviour:
       roomren: []
       allattttimel: 0
       "\u8840\u6761": {fileID: 0}
+      spriter: {fileID: 0}
+      aud: {fileID: 0}
       bloodtext: {fileID: 0}
       nametext: {fileID: 0}
       bloodphycis: {fileID: 0}
@@ -5946,6 +5967,8 @@ MonoBehaviour:
                       roomren: []
                       allattttimel: 0
                       "\u8840\u6761": {fileID: 0}
+                      spriter: {fileID: 0}
+                      aud: {fileID: 0}
                       bloodtext: {fileID: 0}
                       nametext: {fileID: 0}
                       bloodphycis: {fileID: 0}
@@ -5974,6 +5997,8 @@ MonoBehaviour:
                   roomren: []
                   allattttimel: 0
                   "\u8840\u6761": {fileID: 0}
+                  spriter: {fileID: 0}
+                  aud: {fileID: 0}
                   bloodtext: {fileID: 0}
                   nametext: {fileID: 0}
                   bloodphycis: {fileID: 0}
@@ -6002,6 +6027,8 @@ MonoBehaviour:
               roomren: []
               allattttimel: 0
               "\u8840\u6761": {fileID: 0}
+              spriter: {fileID: 0}
+              aud: {fileID: 0}
               bloodtext: {fileID: 0}
               nametext: {fileID: 0}
               bloodphycis: {fileID: 0}
@@ -6030,6 +6057,8 @@ MonoBehaviour:
           roomren: []
           allattttimel: 0
           "\u8840\u6761": {fileID: 0}
+          spriter: {fileID: 0}
+          aud: {fileID: 0}
           bloodtext: {fileID: 0}
           nametext: {fileID: 0}
           bloodphycis: {fileID: 0}
@@ -6058,6 +6087,8 @@ MonoBehaviour:
       roomren: []
       allattttimel: 0
       "\u8840\u6761": {fileID: 0}
+      spriter: {fileID: 0}
+      aud: {fileID: 0}
       bloodtext: {fileID: 0}
       nametext: {fileID: 0}
       bloodphycis: {fileID: 0}
@@ -6119,6 +6150,8 @@ MonoBehaviour:
                       roomren: []
                       allattttimel: 0
                       "\u8840\u6761": {fileID: 0}
+                      spriter: {fileID: 0}
+                      aud: {fileID: 0}
                       bloodtext: {fileID: 0}
                       nametext: {fileID: 0}
                       bloodphycis: {fileID: 0}
@@ -6147,6 +6180,8 @@ MonoBehaviour:
                   roomren: []
                   allattttimel: 0
                   "\u8840\u6761": {fileID: 0}
+                  spriter: {fileID: 0}
+                  aud: {fileID: 0}
                   bloodtext: {fileID: 0}
                   nametext: {fileID: 0}
                   bloodphycis: {fileID: 0}
@@ -6175,6 +6210,8 @@ MonoBehaviour:
               roomren: []
               allattttimel: 0
               "\u8840\u6761": {fileID: 0}
+              spriter: {fileID: 0}
+              aud: {fileID: 0}
               bloodtext: {fileID: 0}
               nametext: {fileID: 0}
               bloodphycis: {fileID: 0}
@@ -6203,6 +6240,8 @@ MonoBehaviour:
           roomren: []
           allattttimel: 0
           "\u8840\u6761": {fileID: 0}
+          spriter: {fileID: 0}
+          aud: {fileID: 0}
           bloodtext: {fileID: 0}
           nametext: {fileID: 0}
           bloodphycis: {fileID: 0}
@@ -6231,6 +6270,8 @@ MonoBehaviour:
       roomren: []
       allattttimel: 0
       "\u8840\u6761": {fileID: 0}
+      spriter: {fileID: 0}
+      aud: {fileID: 0}
       bloodtext: {fileID: 0}
       nametext: {fileID: 0}
       bloodphycis: {fileID: 0}
@@ -6292,6 +6333,8 @@ MonoBehaviour:
                       roomren: []
                       allattttimel: 0
                       "\u8840\u6761": {fileID: 0}
+                      spriter: {fileID: 0}
+                      aud: {fileID: 0}
                       bloodtext: {fileID: 0}
                       nametext: {fileID: 0}
                       bloodphycis: {fileID: 0}
@@ -6320,6 +6363,8 @@ MonoBehaviour:
                   roomren: []
                   allattttimel: 0
                   "\u8840\u6761": {fileID: 0}
+                  spriter: {fileID: 0}
+                  aud: {fileID: 0}
                   bloodtext: {fileID: 0}
                   nametext: {fileID: 0}
                   bloodphycis: {fileID: 0}
@@ -6348,6 +6393,8 @@ MonoBehaviour:
               roomren: []
               allattttimel: 0
               "\u8840\u6761": {fileID: 0}
+              spriter: {fileID: 0}
+              aud: {fileID: 0}
               bloodtext: {fileID: 0}
               nametext: {fileID: 0}
               bloodphycis: {fileID: 0}
@@ -6376,6 +6423,8 @@ MonoBehaviour:
           roomren: []
           allattttimel: 0
           "\u8840\u6761": {fileID: 0}
+          spriter: {fileID: 0}
+          aud: {fileID: 0}
           bloodtext: {fileID: 0}
           nametext: {fileID: 0}
           bloodphycis: {fileID: 0}
@@ -6404,6 +6453,8 @@ MonoBehaviour:
       roomren: []
       allattttimel: 0
       "\u8840\u6761": {fileID: 0}
+      spriter: {fileID: 0}
+      aud: {fileID: 0}
       bloodtext: {fileID: 0}
       nametext: {fileID: 0}
       bloodphycis: {fileID: 0}
@@ -6465,6 +6516,8 @@ MonoBehaviour:
                       roomren: []
                       allattttimel: 0
                       "\u8840\u6761": {fileID: 0}
+                      spriter: {fileID: 0}
+                      aud: {fileID: 0}
                       bloodtext: {fileID: 0}
                       nametext: {fileID: 0}
                       bloodphycis: {fileID: 0}
@@ -6493,6 +6546,8 @@ MonoBehaviour:
                   roomren: []
                   allattttimel: 0
                   "\u8840\u6761": {fileID: 0}
+                  spriter: {fileID: 0}
+                  aud: {fileID: 0}
                   bloodtext: {fileID: 0}
                   nametext: {fileID: 0}
                   bloodphycis: {fileID: 0}
@@ -6521,6 +6576,8 @@ MonoBehaviour:
               roomren: []
               allattttimel: 0
               "\u8840\u6761": {fileID: 0}
+              spriter: {fileID: 0}
+              aud: {fileID: 0}
               bloodtext: {fileID: 0}
               nametext: {fileID: 0}
               bloodphycis: {fileID: 0}
@@ -6549,6 +6606,8 @@ MonoBehaviour:
           roomren: []
           allattttimel: 0
           "\u8840\u6761": {fileID: 0}
+          spriter: {fileID: 0}
+          aud: {fileID: 0}
           bloodtext: {fileID: 0}
           nametext: {fileID: 0}
           bloodphycis: {fileID: 0}
@@ -6577,6 +6636,8 @@ MonoBehaviour:
       roomren: []
       allattttimel: 0
       "\u8840\u6761": {fileID: 0}
+      spriter: {fileID: 0}
+      aud: {fileID: 0}
       bloodtext: {fileID: 0}
       nametext: {fileID: 0}
       bloodphycis: {fileID: 0}

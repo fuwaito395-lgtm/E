@@ -21,5 +21,7 @@ public class AttackSO : ScriptableObject
     public AttackSO nextatt = null;
     public Sprite beforeatt;
     public Sprite afteratt;
+    public AudioClip beforeaud;
+    public AudioClip afteraud;
 }
 

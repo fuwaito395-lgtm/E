@@ -27,3 +27,5 @@ MonoBehaviour:
   nextatt: {fileID: 0}
   beforeatt: {fileID: 21300000, guid: 0bbaaee88a99c844db6b068499036dda, type: 3}
   afteratt: {fileID: 21300000, guid: 7d8c06d7e9f1d2140b2fe9ebb7ff3335, type: 3}
+  beforeaud: {fileID: 8300000, guid: 0607fc95e7cd96846a4ccbdc1176581f, type: 3}
+  afteraud: {fileID: 8300000, guid: 1615889c030b1d945860ec3e4eb22d13, type: 3}

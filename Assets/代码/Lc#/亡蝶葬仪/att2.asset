@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackId: 
   description: 
-  prop: 10
+  prop: 1
   windup: 10
   hitTime: 24.5
   post: 0
@@ -27,3 +27,5 @@ MonoBehaviour:
   nextatt: {fileID: 0}
   beforeatt: {fileID: 21300000, guid: 4704ee2f20a999e49abb8551d89a71f0, type: 3}
   afteratt: {fileID: 21300000, guid: 50809ff794f21fb4bb79a77bdd5e569e, type: 3}
+  beforeaud: {fileID: 8300000, guid: 4589ccb3bb38e624fb49e22c24edf496, type: 3}
+  afteraud: {fileID: 8300000, guid: ed6815695562efa48a6129a213556e5c, type: 3}

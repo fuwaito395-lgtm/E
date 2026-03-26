@@ -7,7 +7,7 @@ public class DamagePopup : MonoBehaviour
     public SpriteRenderer iconRenderer;
     public TextMeshPro text;
 
-    public float lifeTime = 0.8f;
+    public float lifeTime = 1.2f;
     public float floatSpeed = 1.5f;
     public float shakeStrength = 0.2f;
 

@@ -16,14 +16,16 @@ MonoBehaviour:
   description: 
   prop: 3
   windup: 3
-  hitTime: 0.2
+  hitTime: 0.5
   post: 0
   beforerange: 100
   afterrange: 100
-  damage: 1
+  damage: 3
   _Damage: 1
   IsflipX: 1
   typerange: 0
   nextatt: {fileID: 11400000}
   beforeatt: {fileID: 21300000, guid: 0bbaaee88a99c844db6b068499036dda, type: 3}
   afteratt: {fileID: 21300000, guid: a245af14c812e1745bf38abe50dfe52e, type: 3}
+  beforeaud: {fileID: 8300000, guid: 0607fc95e7cd96846a4ccbdc1176581f, type: 3}
+  afteraud: {fileID: 8300000, guid: 21e182791da160c4d84b74dfbec35a4c, type: 3}

@@ -86,6 +86,8 @@ public class 怪物实例
     public List<员工perfer> roomren = new List<员工perfer>();
     public allatttime allattttimel;
     public GameObject 血条;
+    public SpriteRenderer spriter;
+    public AudioSource aud;
 
     [HideInInspector] public TextMeshPro bloodtext;
     [HideInInspector] public TextMeshPro nametext;
@@ -274,7 +276,9 @@ public class 怪物实例
         关联对象 = UnityEngine.Object.Instantiate(so.视图Prefab, pos, Quaternion.identity, 出逃父物体.instance.transform);
 
         var spr = 关联对象.GetComponent<SpriteRenderer>();
-
+        spriter = spr;
+        var au= 关联对象.GetComponent<AudioSource>();
+        aud = au;
         if (this.数据.beforegoout != null)
         {
             spr.sprite = this.数据.beforegoout;
@@ -462,7 +466,8 @@ public class 怪物实例
     public virtual void lastworkfinish(员工perfer 员工, 收容所记录 nowL,员工setwork work)
     {
         foreach (var rt in 机制运行时列表) rt.onlastworkfinish(员工, nowL, work);
-        
+        条.instance.whenworkdone();
+
     }
 
     public void 添加机制(工作机制SO so)// 便捷 API：添加/删除/替换机制（运行时）
