@@ -45,6 +45,6 @@ public class 工作机制运行时
     public virtual void OnoneWorkFinish(bool success, 员工perfer 员工, 收容所记录 nowL, 员工setwork work) { }
     public virtual void onlastworkfinish(员工perfer 员工, 收容所记录 nowL, 员工setwork work) 
     {
-        条.instance.whenworkdone();
+        
     }
 }

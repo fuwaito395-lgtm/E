@@ -102,6 +102,7 @@ public class 收容系统 : MonoBehaviour
 
     public void 条满()
     {
+        
         foreach(var i in 初始收容所列表)
         {
            i.怪物数据实例.出逃计数(1);

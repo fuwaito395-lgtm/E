@@ -5,13 +5,16 @@ using UnityEngine;
 
 public class 条 : MonoBehaviour
 {
-   
     public static 条 instance;
+    SpriteRenderer sr;
     private float x=1;
+    float spriteWidthLocal;
+    float leftLocalX;
+    Vector3 originalLocalScale;
     private void Awake()
     {
-        
         instance = this;
+        sr = GetComponent<SpriteRenderer>();
     }
     public void whenworkdone()
     {

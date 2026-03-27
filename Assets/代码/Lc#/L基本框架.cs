@@ -460,7 +460,6 @@ public class 怪物实例
         if (index < 0 || index >= arr.Length) return 0f;
         float pro = arr[index];
         foreach (var rt in 机制运行时列表) rt.ModifyChance(pro, 员工, nowL, work);
-
         return pro;
     }
     public virtual void lastworkfinish(员工perfer 员工, 收容所记录 nowL,员工setwork work)
