@@ -32,6 +32,7 @@ public class 焦化少女goout : 怪物漫游Base
                     
                     var perfet = ob.GetComponent<员工perfer>();
                     perfet.calfinaldamega(movedata.nowatt.damage, movedata.nowatt._Damage, perfet, this.parent,null);
+                    perfet.ReceiveBuff("燃烧",25);
                 }
             }
             movedata.nowhpl = 0;

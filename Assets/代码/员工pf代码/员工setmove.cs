@@ -96,7 +96,9 @@ public class 员工移动 : MonoBehaviour
             {
                 changetoidei.resetidei();
                 Datapfmove.Data.currentState = 人数据列表.ren.state.idie;
-            }else
+                Datapfmove.当前房间.e进入(this.Datapfmove);
+            }
+            else
             {
                 Datapfmove.Data.currentState = 人数据列表.ren.state.work;
             }

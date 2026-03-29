@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -10,8 +11,7 @@ public class 员工perfer : MonoBehaviour
 
     
     public 员工setatt setat;
-
-
+    public BuffManager buff;
     [HideInInspector] public 人数据列表.ren Data;
     [HideInInspector] public SpriteRenderer sr;
     [HideInInspector] public 员工移动 movec;
@@ -106,10 +106,10 @@ public class 员工perfer : MonoBehaviour
     }
     public void 收到怪物进入通知(怪物实例 monster)
     {
-        
-            this.Data.ltarget = monster;
-            Debug.Log(monster.nametext);
-            setat.attcd = true;
+        if (this.Data.currentState == 人数据列表.ren.state.move) return;
+        this.Data.ltarget = monster;
+        Debug.Log(monster.nametext);
+        setat.attcd = true;
         Data.currentState = 人数据列表.ren.state.att;
     }
     public void 收到怪物离开通知(怪物实例 monster)
@@ -125,5 +125,23 @@ public class 员工perfer : MonoBehaviour
             }
         }
     }
+    public void ReceiveBuff(string buffName, int layers)
+    {
+        BuffBase newBuff = null;
+
+        // 根据名字创建对应的 Buff 实例
+        switch (buffName)
+        {
+            case "燃烧":
+                newBuff = new 燃烧 { Name = "燃烧", Layers = layers };
+                break;
+        }
+
+        if (newBuff != null && buff != null)
+        {
+            buff.AddBuff(newBuff);
+        }
+    }
+
 }
 

@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 576668143815575286}
   - component: {fileID: 5013389142119323610}
   - component: {fileID: -3934672753369172129}
+  - component: {fileID: 2301892209105785960}
   m_Layer: 3
   m_Name: "\u5458\u5DE5\u9884\u8BBE"
   m_TagString: Employee
@@ -120,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   setat: {fileID: -3934672753369172129}
+  buff: {fileID: 2301892209105785960}
   Data:
     "\u5173\u8054\u5BF9\u8C61": {fileID: 0}
     bianhao: 0
@@ -200,6 +202,8 @@ MonoBehaviour:
                       roomren: []
                       allattttimel: 0
                       "\u8840\u6761": {fileID: 0}
+                      spriter: {fileID: 0}
+                      aud: {fileID: 0}
                       bloodtext: {fileID: 0}
                       nametext: {fileID: 0}
                       bloodphycis: {fileID: 0}
@@ -228,6 +232,8 @@ MonoBehaviour:
                   roomren: []
                   allattttimel: 0
                   "\u8840\u6761": {fileID: 0}
+                  spriter: {fileID: 0}
+                  aud: {fileID: 0}
                   bloodtext: {fileID: 0}
                   nametext: {fileID: 0}
                   bloodphycis: {fileID: 0}
@@ -256,6 +262,8 @@ MonoBehaviour:
               roomren: []
               allattttimel: 0
               "\u8840\u6761": {fileID: 0}
+              spriter: {fileID: 0}
+              aud: {fileID: 0}
               bloodtext: {fileID: 0}
               nametext: {fileID: 0}
               bloodphycis: {fileID: 0}
@@ -284,6 +292,8 @@ MonoBehaviour:
           roomren: []
           allattttimel: 0
           "\u8840\u6761": {fileID: 0}
+          spriter: {fileID: 0}
+          aud: {fileID: 0}
           bloodtext: {fileID: 0}
           nametext: {fileID: 0}
           bloodphycis: {fileID: 0}
@@ -312,6 +322,8 @@ MonoBehaviour:
       roomren: []
       allattttimel: 0
       "\u8840\u6761": {fileID: 0}
+      spriter: {fileID: 0}
+      aud: {fileID: 0}
       bloodtext: {fileID: 0}
       nametext: {fileID: 0}
       bloodphycis: {fileID: 0}
@@ -480,6 +492,8 @@ MonoBehaviour:
                     roomren: []
                     allattttimel: 0
                     "\u8840\u6761": {fileID: 0}
+                    spriter: {fileID: 0}
+                    aud: {fileID: 0}
                     bloodtext: {fileID: 0}
                     nametext: {fileID: 0}
                     bloodphycis: {fileID: 0}
@@ -508,6 +522,8 @@ MonoBehaviour:
                 roomren: []
                 allattttimel: 0
                 "\u8840\u6761": {fileID: 0}
+                spriter: {fileID: 0}
+                aud: {fileID: 0}
                 bloodtext: {fileID: 0}
                 nametext: {fileID: 0}
                 bloodphycis: {fileID: 0}
@@ -536,6 +552,8 @@ MonoBehaviour:
             roomren: []
             allattttimel: 0
             "\u8840\u6761": {fileID: 0}
+            spriter: {fileID: 0}
+            aud: {fileID: 0}
             bloodtext: {fileID: 0}
             nametext: {fileID: 0}
             bloodphycis: {fileID: 0}
@@ -564,6 +582,8 @@ MonoBehaviour:
         roomren: []
         allattttimel: 0
         "\u8840\u6761": {fileID: 0}
+        spriter: {fileID: 0}
+        aud: {fileID: 0}
         bloodtext: {fileID: 0}
         nametext: {fileID: 0}
         bloodphycis: {fileID: 0}
@@ -592,6 +612,8 @@ MonoBehaviour:
     roomren: []
     allattttimel: 0
     "\u8840\u6761": {fileID: 0}
+    spriter: {fileID: 0}
+    aud: {fileID: 0}
     bloodtext: {fileID: 0}
     nametext: {fileID: 0}
     bloodphycis: {fileID: 0}
@@ -698,6 +720,8 @@ MonoBehaviour:
                     roomren: []
                     allattttimel: 0
                     "\u8840\u6761": {fileID: 0}
+                    spriter: {fileID: 0}
+                    aud: {fileID: 0}
                     bloodtext: {fileID: 0}
                     nametext: {fileID: 0}
                     bloodphycis: {fileID: 0}
@@ -726,6 +750,8 @@ MonoBehaviour:
                 roomren: []
                 allattttimel: 0
                 "\u8840\u6761": {fileID: 0}
+                spriter: {fileID: 0}
+                aud: {fileID: 0}
                 bloodtext: {fileID: 0}
                 nametext: {fileID: 0}
                 bloodphycis: {fileID: 0}
@@ -754,6 +780,8 @@ MonoBehaviour:
             roomren: []
             allattttimel: 0
             "\u8840\u6761": {fileID: 0}
+            spriter: {fileID: 0}
+            aud: {fileID: 0}
             bloodtext: {fileID: 0}
             nametext: {fileID: 0}
             bloodphycis: {fileID: 0}
@@ -782,6 +810,8 @@ MonoBehaviour:
         roomren: []
         allattttimel: 0
         "\u8840\u6761": {fileID: 0}
+        spriter: {fileID: 0}
+        aud: {fileID: 0}
         bloodtext: {fileID: 0}
         nametext: {fileID: 0}
         bloodphycis: {fileID: 0}
@@ -810,11 +840,26 @@ MonoBehaviour:
     roomren: []
     allattttimel: 0
     "\u8840\u6761": {fileID: 0}
+    spriter: {fileID: 0}
+    aud: {fileID: 0}
     bloodtext: {fileID: 0}
     nametext: {fileID: 0}
     bloodphycis: {fileID: 0}
     "\u5F53\u524D\u623F\u95F4": {fileID: 0}
   timer: 0
+--- !u!114 &2301892209105785960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155614476721595128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3372b932f11aa804b955927996638db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pf: {fileID: -306132680385448057}
 --- !u!1 &1540488733533143509
 GameObject:
   m_ObjectHideFlags: 0

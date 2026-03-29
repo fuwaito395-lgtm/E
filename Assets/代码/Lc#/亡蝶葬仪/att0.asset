@@ -15,8 +15,8 @@ MonoBehaviour:
   attackId: 
   description: 
   prop: 3
-  windup: 3
-  hitTime: 0.5
+  windup: 4
+  hitTime: 1
   post: 0
   beforerange: 100
   afterrange: 100

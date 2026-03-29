@@ -102,7 +102,7 @@ public class 房间 : MonoBehaviour
                 当前员工.RemoveAt(i);
                 continue;
             }
-
+            
             emp.收到怪物进入通知(monster);
         }
 
