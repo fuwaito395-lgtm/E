@@ -24,37 +24,37 @@ public class 武器实例
         }
     }
 
-    public void OnAttackStart()
+    public void OnAttackStart(怪物实例 targetObject,员工perfer owner)
     {
         foreach (var e in 效果运行时列表)
         {
-            e.OnAttackStart();
+            e.OnAttackStart( targetObject,  owner);
         }
     }
 
-    public float 计算最终伤害(float baseDamage)
+    public float 计算最终伤害(float baseDamage, 怪物实例 targetObject, 员工perfer owner)
     {
         float dmg = baseDamage;
         foreach (var e in 效果运行时列表)
         {
-            dmg = e.ModifyDamage(dmg);
+            dmg = e.ModifyDamage(dmg, targetObject,owner);
         }
         return dmg;
     }
 
-    public void 通知命中(GameObject targetObject, float finalDamage, bool hitFriend)
+    public void 通知命中(怪物实例  targetObject, float finalDamage, bool hitFriend, 员工perfer owner)
     {
         foreach (var e in 效果运行时列表)
         {
-            e.OnHitTarget(targetObject, finalDamage, hitFriend);
+            e.OnHitTarget(targetObject, finalDamage, hitFriend,owner);
         }
     }
 
-    public void OnAttackEnd(int hitCount)
+    public void OnAttackEnd(int hitCount, 怪物实例 m, 员工perfer owner)
     {
         foreach (var e in 效果运行时列表)
         {
-            e.OnAttackEnd(hitCount);
+            e.OnAttackEnd(hitCount,m,owner);
         }
     }
 }

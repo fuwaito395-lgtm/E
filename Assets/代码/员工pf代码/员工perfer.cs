@@ -128,8 +128,6 @@ public class 员工perfer : MonoBehaviour
     public void ReceiveBuff(string buffName, int layers)
     {
         BuffBase newBuff = null;
-
-        // 根据名字创建对应的 Buff 实例
         switch (buffName)
         {
             case "燃烧":

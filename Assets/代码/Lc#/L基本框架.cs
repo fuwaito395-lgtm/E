@@ -93,7 +93,9 @@ public class 怪物实例
     [HideInInspector] public TextMeshPro nametext;
     [HideInInspector] public 血条显示 bloodphycis;
 
-    
+    public Dictionary<string, BuffBase> activeBuffs = new Dictionary<string, BuffBase>();
+    private List<string> keysToRemove = new List<string>();
+
     public 房间 当前房间 = null;
     
 
@@ -171,7 +173,18 @@ public class 怪物实例
         {
             return;
         }
-
+        foreach (var kvp in activeBuffs) // 处理所有buff的时间
+        {
+            kvp.Value.UpdateLogic(null, this, dt);
+            if (kvp.Value.Layers <= 0) keysToRemove.Add(kvp.Key);
+        }
+        foreach (var key in keysToRemove)
+        {
+            activeBuffs[key].OnRemove();
+            activeBuffs.Remove(key);
+            
+        }
+        keysToRemove.Clear();
         if (stoptime > 0)
         {
             if (stoptime < 0) stoptime = 0;
@@ -186,6 +199,7 @@ public class 怪物实例
         if (roam == null)
             return;
 
+        keysToRemove.Clear();
         if (!IsTargetValid(targetren))
         {
             targetren = null;
@@ -518,7 +532,35 @@ public class 怪物实例
         bloodtext.text = nowhpl.ToString();
         伤害图片控制器.instance.Show(damegatyp, (int)damegavol, this.关联对象.transform.position);
     }
+    public void ReceiveBuff(string buffName, int layers)
+    {
+        BuffBase newBuff = null;
+        switch (buffName)
+        {
+            case "燃烧":
+                newBuff = new 燃烧 { Name = "燃烧", Layers = layers };
+                break;
+        }
 
+        if (newBuff != null)
+        {
+            AddBuff(newBuff);
+        }
+    }
+    public void AddBuff(BuffBase newBuff)
+    {
+        if (activeBuffs.ContainsKey(newBuff.Name))
+        {
+
+            activeBuffs[newBuff.Name].Layers += newBuff.Layers;// 增加层数
+            activeBuffs[newBuff.Name].ResetTimer();
+        }
+        else
+        {
+            activeBuffs.Add(newBuff.Name, newBuff);
+            newBuff.OnApply(null, this); // 第一次获得时触发
+        }
+    }
 
 
 }

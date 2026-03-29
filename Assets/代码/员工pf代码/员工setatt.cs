@@ -115,7 +115,7 @@ public class 员工setatt : MonoBehaviour
             return;
         }
 
-        if (timer > 0f)
+        if (timer >= 0f)
         {
             timer -= Time.deltaTime * tct.Instance.timec;
             return;
@@ -181,7 +181,7 @@ public class 员工setatt : MonoBehaviour
         if (当前武器 == null || 当前武器.数据 == null) return;
 
         attcd = true;
-        当前武器.OnAttackStart();
+        当前武器.OnAttackStart(this.targetl,this.Datapfset);
 
         int hitCount = 0;
         //Debug.Log("stat");
@@ -194,7 +194,7 @@ public class 员工setatt : MonoBehaviour
             hitCount = 单体攻击(targetl) ? 1 : 0;
         }
 
-        当前武器.OnAttackEnd(hitCount);
+        当前武器.OnAttackEnd(hitCount,targetl, this.Datapfset);
     }
 
     private int 范围攻击()
@@ -253,7 +253,7 @@ public class 员工setatt : MonoBehaviour
 
     private bool 攻击怪物(怪物实例 m)
     {
-        float damage = 当前武器.计算最终伤害(当前武器.数据.基础伤害);
+        float damage = 当前武器.计算最终伤害(当前武器.数据.基础伤害,m, this.Datapfset);
         //Debug.Log("calda");
         m.calfinaldamega(
             damage,
@@ -263,7 +263,7 @@ public class 员工setatt : MonoBehaviour
             null
         );
 
-        当前武器.通知命中(m.关联对象, damage, false);
+        当前武器.通知命中(m, damage, false, this.Datapfset);
         return true;
     }
 
@@ -272,15 +272,14 @@ public class 员工setatt : MonoBehaviour
         if (r == null || r.关联对象 == null) return false;
         if (r.hp <= 0) return false;
 
-        float damage = 当前武器.计算最终伤害(当前武器.数据.基础伤害);
+        float damage = 当前武器.计算最终伤害(当前武器.数据.基础伤害,null, this.Datapfset);
         r.hp = Mathf.Max(0, r.hp - Mathf.CeilToInt(damage));
-
         if (r.hp <= 0)
         {
             r.currentState = 人数据列表.ren.state.die;
         }
 
-        当前武器.通知命中(r.关联对象, damage, true);
+        当前武器.通知命中(null, damage, true, this.Datapfset);
         return true;
     }
 }

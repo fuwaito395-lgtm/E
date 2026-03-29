@@ -41,7 +41,8 @@ public class 求知的稻草人goout : 怪物漫游Base
                 {
                    if (movedata.nowatt == movedata.数据.attacks[2])
                    {
-                       movedata.nowhpl += 50;
+                       movedata.nowhpl += 100;
+                       movedata.calfinaldamega(-100, class_damage.damegatype.physic, null, movedata, null);
                    }
                     var perfet = ob.GetComponent<员工perfer>();
                     perfet.calfinaldamega(movedata.nowatt.damage, movedata.nowatt._Damage, perfet, this.parent, null);
@@ -55,8 +56,8 @@ public class 求知的稻草人goout : 怪物漫游Base
                 {
                     if (movedata.nowatt == movedata.数据.attacks[2])
                     {
-                       movedata.nowhpl += 50;
-                            movedata.calfinaldamega(-50, class_damage.damegatype.physic, null, movedata, null);
+                        movedata.nowhpl += 100;
+                        movedata.calfinaldamega(-100, class_damage.damegatype.physic, null, movedata, null);
                     }
                     var perfet = ob.GetComponent<员工perfer>();
                     perfet.calfinaldamega(movedata.nowatt.damage, movedata.nowatt._Damage, perfet, this.parent, null);

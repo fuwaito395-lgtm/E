@@ -17,10 +17,10 @@ MonoBehaviour:
   prop: 2
   windup: 2
   hitTime: 1
-  post: 0.5
+  post: 0.2
   beforerange: 4
   afterrange: 6
-  damage: 7
+  damage: 10
   _Damage: 2
   IsflipX: 1
   typerange: 0

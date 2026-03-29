@@ -22,17 +22,17 @@ public class 武器效果运行时
         this.owner = owner;
     }
 
-    public virtual void OnAttackStart() { }
+    public virtual void OnAttackStart(怪物实例 targetObject, 员工perfer owner) { }
 
-    public virtual float ModifyDamage(float damage)
+    public virtual float ModifyDamage(float damage, 怪物实例 targetObject, 员工perfer owner)
     {
         return damage;
     }
 
-    public virtual void OnHitTarget(GameObject targetObject, float finalDamage, bool hitFriend) 
+    public virtual void OnHitTarget(怪物实例 targetl, float finalDamage, bool hitFriend,  员工perfer owner) 
     {
         
     }
 
-    public virtual void OnAttackEnd(int hitCount) { }
+    public virtual void OnAttackEnd(int hitCount, 怪物实例 targetl, 员工perfer owner) { }
 }

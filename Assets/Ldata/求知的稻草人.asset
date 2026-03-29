@@ -66,7 +66,7 @@ MonoBehaviour:
   "\u9ED8\u8BA4\u673A\u5236\u5217\u8868":
   - {fileID: 11400000, guid: b3cbbfafe1921df40b08a675569178db, type: 2}
   "\u51FA\u9003max": 1
-  maxlhp: 900
+  maxlhp: 920
   attacks:
   - {fileID: 11400000, guid: 82b0eb98c90a00243b5f9e48f189f328, type: 2}
   - {fileID: 11400000, guid: 6ee8e03d42dcadb4a9a92c2aa348ff13, type: 2}
@@ -78,3 +78,4 @@ MonoBehaviour:
   "\u89C6\u56FEPrefab": {fileID: 1690136607986527327, guid: cd1eb96d46039e948932ae6df1d4a7a8, type: 3}
   beforegoout: {fileID: 0}
   aftergoout: {fileID: 21300000, guid: 483d0a51b2e0a7f488d84186ea817284, type: 3}
+  extrasp: []

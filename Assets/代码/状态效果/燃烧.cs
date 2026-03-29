@@ -2,13 +2,19 @@
 public class 燃烧 : BuffBase
 {
     public 燃烧() { Name = "燃烧"; }
-    public override void UpdateLogic(员工perfer renowner, float deltaTime)
+    public override void UpdateLogic(员工perfer renowner, 怪物实例 lowner, float deltaTime)
     {
-        base.UpdateLogic(renowner, deltaTime);
-        if (timer >= 1.0f) // 只有超过1秒才触发逻辑
+        base.UpdateLogic(renowner,null, deltaTime);
+        if (timer >= 5.0f) // 只有超过5秒才触发逻辑
         {
-            // 伤害等同于层数
-            renowner.calfinaldamega(Layers, class_damage.damegatype.physic, renowner, null, null);
+            if(renowner!=null)
+            {
+                renowner.calfinaldamega(Layers, class_damage.damegatype.physic, renowner, null, null);// 伤害等同于层数
+            }
+            if(lowner!=null)
+            {
+                lowner.calfinaldamega(Layers, class_damage.damegatype.physic, null, lowner, null);
+            }
             Layers /= 2;
             timer = 0; // 重置计时器
         }
