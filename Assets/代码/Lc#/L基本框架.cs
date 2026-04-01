@@ -94,7 +94,7 @@ public class 怪物实例
     [HideInInspector] public 血条显示 bloodphycis;
 
     public Dictionary<string, BuffBase> activeBuffs = new Dictionary<string, BuffBase>();
-    private List<string> keysToRemove = new List<string>();
+    public List<string> keysToRemove = new List<string>();
 
     public 房间 当前房间 = null;
     
@@ -173,17 +173,10 @@ public class 怪物实例
         {
             return;
         }
-        foreach (var kvp in activeBuffs) // 处理所有buff的时间
-        {
-            kvp.Value.UpdateLogic(null, this, dt);
-            if (kvp.Value.Layers <= 0) keysToRemove.Add(kvp.Key);
-        }
-        foreach (var key in keysToRemove)
-        {
-            activeBuffs[key].OnRemove();
-            activeBuffs.Remove(key);
-            
-        }
+        var roam = 当前漫游;
+        if (roam == null)
+            return;
+        roam.checkbuffwhenupdate(关联对象, this, dt);
         keysToRemove.Clear();
         if (stoptime > 0)
         {
@@ -195,9 +188,7 @@ public class 怪物实例
             }
             return;
         }
-        var roam = 当前漫游;
-        if (roam == null)
-            return;
+        
 
         keysToRemove.Clear();
         if (!IsTargetValid(targetren))
@@ -206,8 +197,11 @@ public class 怪物实例
         }
         if (allattttimel == allatttime.windup)
         {
+            roam.checkbuffwhenatt(关联对象, this);
             roam.caliswindup(关联对象, this);
+            
             return;
+            
         }
 
         if (allattttimel == allatttime.post)
@@ -525,7 +519,6 @@ public class 怪物实例
 
         damegavol = (int)System.Math.Ceiling(damegavol);
         //后续抗性
-
         this.nowhpl -= (int)damegavol;
         float ratio = (float)this.nowhpl / this.数据.maxlhp;
         bloodphycis.updatephysic(ratio);
@@ -540,10 +533,13 @@ public class 怪物实例
             case "燃烧":
                 newBuff = new 燃烧 { Name = "燃烧", Layers = layers };
                 break;
+            case "流血":
+                newBuff = new 流血 { Name = "流血", Layers = layers };
+                break;
         }
-
         if (newBuff != null)
         {
+            //Debug.Log("receivebuff");
             AddBuff(newBuff);
         }
     }
@@ -557,6 +553,7 @@ public class 怪物实例
         }
         else
         {
+            Debug.Log("addbuff");
             activeBuffs.Add(newBuff.Name, newBuff);
             newBuff.OnApply(null, this); // 第一次获得时触发
         }

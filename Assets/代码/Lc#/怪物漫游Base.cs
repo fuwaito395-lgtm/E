@@ -107,7 +107,6 @@ public class 怪物漫游
 
         spr.sprite = movedata.nowatt.afteratt;
         movedata.aud.PlayOneShot(movedata.nowatt.afteraud);
-        // 这里才是真正“命中”的时机
         movedata.怪物漫游运行时[movedata.nowLtype].Onhitrange(movedata.关联对象, movedata);
 
     }
@@ -190,6 +189,31 @@ public class 怪物漫游
         
     }
 
+    //buff函数
+    public virtual void checkbuffwhenupdate(GameObject pt, 怪物实例 movedata,float dt)
+    {
+        foreach (var kvp in movedata.activeBuffs) // 处理所有buff的时间
+        {
+            kvp.Value.UpdateLogic(null, movedata, dt);
+            if (kvp.Value.Layers <= 0) movedata.keysToRemove.Add(kvp.Key);
+        }
+        foreach (var key in movedata.keysToRemove)
+        {
+            movedata.activeBuffs[key].OnRemove();
+            movedata.activeBuffs.Remove(key);
+        }
+        movedata.keysToRemove.Clear();
+    }
+    public virtual void checkbuffwhenatt(GameObject pt, 怪物实例 movedata)
+    {
+        //Debug.Log("check");
+        foreach (var kvp in movedata.activeBuffs) // 处理所有buff的时间
+        {
+            kvp.Value.OnOwnerAttack(null, movedata);
+        }
+    }
+
+
 
     /// <summary>
     /// 副函数
@@ -268,11 +292,11 @@ public class 怪物漫游
 
     public virtual void Onmove(GameObject pt, 怪物实例 movedata, ren targetren)
     {
-        Debug.Log("onmove");
+        //Debug.Log("onmove");
 
         if (movedata.lpath == null || movedata.lpath.Count == 0)
         {
-            Debug.Log(" path.Count == 0");
+        //    Debug.Log(" path.Count == 0");
             movedata.lpath = 寻路系统dij.intance.寻路(movedata.lnowroom, targetren.CurrentRoomId).lui;
             movedata.pathIndex = 0;
             firstmove(pt, movedata, spir);
@@ -282,13 +306,13 @@ public class 怪物漫游
 
         if (movedata.pathIndex >= movedata.lpath.Count - 1)
         {
-            Debug.Log("return " + movedata.pathIndex);
+        //    Debug.Log("return " + movedata.pathIndex);
             movedata.lpath = null;
             return;
         }
 
         Room next = movedata.lpath[movedata.pathIndex + 1];
-        Debug.Log("moveto");
+        //Debug.Log("moveto");
 
         if (spir == null)
         {

@@ -133,6 +133,9 @@ public class 员工perfer : MonoBehaviour
             case "燃烧":
                 newBuff = new 燃烧 { Name = "燃烧", Layers = layers };
                 break;
+            case "流血":
+                newBuff = new 流血 { Name = "流血", Layers = layers };
+                break;
         }
 
         if (newBuff != null && buff != null)

@@ -15,14 +15,13 @@ MonoBehaviour:
   "\u602A\u7269Id": 0
   harm: 1
   "\u663E\u793A\u540D": "\u4E00\u7F6A\u4E0E\u767E\u5584"
-  "\u89C6\u56FEPrefab": {fileID: 6218038740633029208, guid: 4aa2e14dfb14b0b4598ad787462734de, type: 3}
   totalwork: 10
   "\u66B4\u6012":
-  - 50
-  - 50
-  - 50
-  - 50
-  - 55
+  - 60
+  - 65
+  - 65
+  - 70
+  - 70
   "\u7EB5\u6B32":
   - 50
   - 50
@@ -30,23 +29,23 @@ MonoBehaviour:
   - 50
   - 50
   "\u6020\u60F0":
-  - 50
-  - 55
-  - 55
-  - 55
-  - 55
+  - 60
+  - 70
+  - 70
+  - 75
+  - 80
   "\u8D2A\u5A6A":
   - 50
-  - 55
-  - 55
-  - 55
   - 60
+  - 60
+  - 60
+  - 66
   "\u7A7A\u865A":
-  - 60
-  - 65
-  - 65
   - 70
   - 70
+  - 70
+  - 80
+  - 85
   "\u50B2\u6162":
   - 60
   - 70
@@ -73,3 +72,7 @@ MonoBehaviour:
   - {fileID: 0}
   intialmovespeedl: 0
   maxprop: 0
+  "\u89C6\u56FEPrefab": {fileID: 6218038740633029208, guid: 4aa2e14dfb14b0b4598ad787462734de, type: 3}
+  beforegoout: {fileID: 0}
+  aftergoout: {fileID: 0}
+  extrasp: []

@@ -3419,7 +3419,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -303.69, y: 199.45}
+  m_AnchoredPosition: {x: -335.09, y: 199.45}
   m_SizeDelta: {x: 75.42731, y: 34.2986}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &543730774
@@ -5041,8 +5041,8 @@ MonoBehaviour:
     bianhao: 0
     tuptx: {fileID: 21300000, guid: e007b79ad72b78b419c0acbf566650ce, type: 3}
     startplace: 0
-    maxhp: 1000
-    hp: 1000
+    maxhp: 50
+    hp: 50
     maxmp: 50
     mp: 50
     movesp: 8
@@ -5121,6 +5121,7 @@ MonoBehaviour:
                       bloodtext: {fileID: 0}
                       nametext: {fileID: 0}
                       bloodphycis: {fileID: 0}
+                      keysToRemove: []
                       "\u5F53\u524D\u623F\u95F4": {fileID: 0}
                     maxwork: {fileID: 0}
                     nowwork: {fileID: 0}
@@ -5151,6 +5152,7 @@ MonoBehaviour:
                   bloodtext: {fileID: 0}
                   nametext: {fileID: 0}
                   bloodphycis: {fileID: 0}
+                  keysToRemove: []
                   "\u5F53\u524D\u623F\u95F4": {fileID: 0}
                 maxwork: {fileID: 0}
                 nowwork: {fileID: 0}
@@ -5181,6 +5183,7 @@ MonoBehaviour:
               bloodtext: {fileID: 0}
               nametext: {fileID: 0}
               bloodphycis: {fileID: 0}
+              keysToRemove: []
               "\u5F53\u524D\u623F\u95F4": {fileID: 0}
             maxwork: {fileID: 0}
             nowwork: {fileID: 0}
@@ -5211,6 +5214,7 @@ MonoBehaviour:
           bloodtext: {fileID: 0}
           nametext: {fileID: 0}
           bloodphycis: {fileID: 0}
+          keysToRemove: []
           "\u5F53\u524D\u623F\u95F4": {fileID: 0}
         maxwork: {fileID: 0}
         nowwork: {fileID: 0}
@@ -5241,6 +5245,7 @@ MonoBehaviour:
       bloodtext: {fileID: 0}
       nametext: {fileID: 0}
       bloodphycis: {fileID: 0}
+      keysToRemove: []
       "\u5F53\u524D\u623F\u95F4": {fileID: 0}
   - "\u5173\u8054\u5BF9\u8C61": {fileID: 0}
     bianhao: 0
@@ -5326,6 +5331,7 @@ MonoBehaviour:
                       bloodtext: {fileID: 0}
                       nametext: {fileID: 0}
                       bloodphycis: {fileID: 0}
+                      keysToRemove: []
                       "\u5F53\u524D\u623F\u95F4": {fileID: 0}
                     maxwork: {fileID: 0}
                     nowwork: {fileID: 0}
@@ -5356,6 +5362,7 @@ MonoBehaviour:
                   bloodtext: {fileID: 0}
                   nametext: {fileID: 0}
                   bloodphycis: {fileID: 0}
+                  keysToRemove: []
                   "\u5F53\u524D\u623F\u95F4": {fileID: 0}
                 maxwork: {fileID: 0}
                 nowwork: {fileID: 0}
@@ -5386,6 +5393,7 @@ MonoBehaviour:
               bloodtext: {fileID: 0}
               nametext: {fileID: 0}
               bloodphycis: {fileID: 0}
+              keysToRemove: []
               "\u5F53\u524D\u623F\u95F4": {fileID: 0}
             maxwork: {fileID: 0}
             nowwork: {fileID: 0}
@@ -5416,6 +5424,7 @@ MonoBehaviour:
           bloodtext: {fileID: 0}
           nametext: {fileID: 0}
           bloodphycis: {fileID: 0}
+          keysToRemove: []
           "\u5F53\u524D\u623F\u95F4": {fileID: 0}
         maxwork: {fileID: 0}
         nowwork: {fileID: 0}
@@ -5446,6 +5455,7 @@ MonoBehaviour:
       bloodtext: {fileID: 0}
       nametext: {fileID: 0}
       bloodphycis: {fileID: 0}
+      keysToRemove: []
       "\u5F53\u524D\u623F\u95F4": {fileID: 0}
 --- !u!4 &846164414 stripped
 Transform:
@@ -6154,6 +6164,7 @@ MonoBehaviour:
                       bloodtext: {fileID: 0}
                       nametext: {fileID: 0}
                       bloodphycis: {fileID: 0}
+                      keysToRemove: []
                       "\u5F53\u524D\u623F\u95F4": {fileID: 0}
                     maxwork: {fileID: 0}
                     nowwork: {fileID: 0}
@@ -6184,6 +6195,7 @@ MonoBehaviour:
                   bloodtext: {fileID: 0}
                   nametext: {fileID: 0}
                   bloodphycis: {fileID: 0}
+                  keysToRemove: []
                   "\u5F53\u524D\u623F\u95F4": {fileID: 0}
                 maxwork: {fileID: 0}
                 nowwork: {fileID: 0}
@@ -6214,6 +6226,7 @@ MonoBehaviour:
               bloodtext: {fileID: 0}
               nametext: {fileID: 0}
               bloodphycis: {fileID: 0}
+              keysToRemove: []
               "\u5F53\u524D\u623F\u95F4": {fileID: 0}
             maxwork: {fileID: 0}
             nowwork: {fileID: 0}
@@ -6244,6 +6257,7 @@ MonoBehaviour:
           bloodtext: {fileID: 0}
           nametext: {fileID: 0}
           bloodphycis: {fileID: 0}
+          keysToRemove: []
           "\u5F53\u524D\u623F\u95F4": {fileID: 0}
         maxwork: {fileID: 0}
         nowwork: {fileID: 0}
@@ -6274,6 +6288,7 @@ MonoBehaviour:
       bloodtext: {fileID: 0}
       nametext: {fileID: 0}
       bloodphycis: {fileID: 0}
+      keysToRemove: []
       "\u5F53\u524D\u623F\u95F4": {fileID: 0}
     maxwork: {fileID: 0}
     nowwork: {fileID: 0}
@@ -6337,6 +6352,7 @@ MonoBehaviour:
                       bloodtext: {fileID: 0}
                       nametext: {fileID: 0}
                       bloodphycis: {fileID: 0}
+                      keysToRemove: []
                       "\u5F53\u524D\u623F\u95F4": {fileID: 0}
                     maxwork: {fileID: 0}
                     nowwork: {fileID: 0}
@@ -6367,6 +6383,7 @@ MonoBehaviour:
                   bloodtext: {fileID: 0}
                   nametext: {fileID: 0}
                   bloodphycis: {fileID: 0}
+                  keysToRemove: []
                   "\u5F53\u524D\u623F\u95F4": {fileID: 0}
                 maxwork: {fileID: 0}
                 nowwork: {fileID: 0}
@@ -6397,6 +6414,7 @@ MonoBehaviour:
               bloodtext: {fileID: 0}
               nametext: {fileID: 0}
               bloodphycis: {fileID: 0}
+              keysToRemove: []
               "\u5F53\u524D\u623F\u95F4": {fileID: 0}
             maxwork: {fileID: 0}
             nowwork: {fileID: 0}
@@ -6427,6 +6445,7 @@ MonoBehaviour:
           bloodtext: {fileID: 0}
           nametext: {fileID: 0}
           bloodphycis: {fileID: 0}
+          keysToRemove: []
           "\u5F53\u524D\u623F\u95F4": {fileID: 0}
         maxwork: {fileID: 0}
         nowwork: {fileID: 0}
@@ -6457,6 +6476,7 @@ MonoBehaviour:
       bloodtext: {fileID: 0}
       nametext: {fileID: 0}
       bloodphycis: {fileID: 0}
+      keysToRemove: []
       "\u5F53\u524D\u623F\u95F4": {fileID: 0}
     maxwork: {fileID: 0}
     nowwork: {fileID: 0}
@@ -6520,6 +6540,7 @@ MonoBehaviour:
                       bloodtext: {fileID: 0}
                       nametext: {fileID: 0}
                       bloodphycis: {fileID: 0}
+                      keysToRemove: []
                       "\u5F53\u524D\u623F\u95F4": {fileID: 0}
                     maxwork: {fileID: 0}
                     nowwork: {fileID: 0}
@@ -6550,6 +6571,7 @@ MonoBehaviour:
                   bloodtext: {fileID: 0}
                   nametext: {fileID: 0}
                   bloodphycis: {fileID: 0}
+                  keysToRemove: []
                   "\u5F53\u524D\u623F\u95F4": {fileID: 0}
                 maxwork: {fileID: 0}
                 nowwork: {fileID: 0}
@@ -6580,6 +6602,7 @@ MonoBehaviour:
               bloodtext: {fileID: 0}
               nametext: {fileID: 0}
               bloodphycis: {fileID: 0}
+              keysToRemove: []
               "\u5F53\u524D\u623F\u95F4": {fileID: 0}
             maxwork: {fileID: 0}
             nowwork: {fileID: 0}
@@ -6610,6 +6633,7 @@ MonoBehaviour:
           bloodtext: {fileID: 0}
           nametext: {fileID: 0}
           bloodphycis: {fileID: 0}
+          keysToRemove: []
           "\u5F53\u524D\u623F\u95F4": {fileID: 0}
         maxwork: {fileID: 0}
         nowwork: {fileID: 0}
@@ -6640,6 +6664,7 @@ MonoBehaviour:
       bloodtext: {fileID: 0}
       nametext: {fileID: 0}
       bloodphycis: {fileID: 0}
+      keysToRemove: []
       "\u5F53\u524D\u623F\u95F4": {fileID: 0}
     maxwork: {fileID: 0}
     nowwork: {fileID: 0}
@@ -6703,6 +6728,7 @@ MonoBehaviour:
                       bloodtext: {fileID: 0}
                       nametext: {fileID: 0}
                       bloodphycis: {fileID: 0}
+                      keysToRemove: []
                       "\u5F53\u524D\u623F\u95F4": {fileID: 0}
                     maxwork: {fileID: 0}
                     nowwork: {fileID: 0}
@@ -6733,6 +6759,7 @@ MonoBehaviour:
                   bloodtext: {fileID: 0}
                   nametext: {fileID: 0}
                   bloodphycis: {fileID: 0}
+                  keysToRemove: []
                   "\u5F53\u524D\u623F\u95F4": {fileID: 0}
                 maxwork: {fileID: 0}
                 nowwork: {fileID: 0}
@@ -6763,6 +6790,7 @@ MonoBehaviour:
               bloodtext: {fileID: 0}
               nametext: {fileID: 0}
               bloodphycis: {fileID: 0}
+              keysToRemove: []
               "\u5F53\u524D\u623F\u95F4": {fileID: 0}
             maxwork: {fileID: 0}
             nowwork: {fileID: 0}
@@ -6793,6 +6821,7 @@ MonoBehaviour:
           bloodtext: {fileID: 0}
           nametext: {fileID: 0}
           bloodphycis: {fileID: 0}
+          keysToRemove: []
           "\u5F53\u524D\u623F\u95F4": {fileID: 0}
         maxwork: {fileID: 0}
         nowwork: {fileID: 0}
@@ -6823,6 +6852,7 @@ MonoBehaviour:
       bloodtext: {fileID: 0}
       nametext: {fileID: 0}
       bloodphycis: {fileID: 0}
+      keysToRemove: []
       "\u5F53\u524D\u623F\u95F4": {fileID: 0}
     maxwork: {fileID: 0}
     nowwork: {fileID: 0}
@@ -8953,7 +8983,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -183.49342, y: 199.45}
+  m_AnchoredPosition: {x: -214.9, y: 199.45}
   m_SizeDelta: {x: 415.8132, y: 34.299}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1332004330

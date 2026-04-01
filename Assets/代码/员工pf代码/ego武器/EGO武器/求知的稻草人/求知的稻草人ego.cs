@@ -21,5 +21,10 @@ public class 求知的稻草人ego : 武器效果Base
             if (owner.Data.mp <= owner.Data.maxmp / 3) return damage * 2;
             return damage;
         }
+        public override void OnHitTarget(怪物实例 targetl, float finalDamage, bool hitFriend, 员工perfer owner)
+        {
+            targetl.ReceiveBuff("流血", 1);
+            //Debug.Log("give流血");
+        }
     }
 }

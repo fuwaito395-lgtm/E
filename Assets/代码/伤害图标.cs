@@ -7,8 +7,8 @@ public class DamagePopup : MonoBehaviour
     public SpriteRenderer iconRenderer;
     public TextMeshPro text;
 
-    public float lifeTime = 1.2f;
-    public float floatSpeed = 1.5f;
+    public float lifeTime = 2f;
+    public float floatSpeed = 3f;
     public float shakeStrength = 0.2f;
 
     private Vector3 velocity;
@@ -41,11 +41,11 @@ public class DamagePopup : MonoBehaviour
             t += Time.deltaTime;
 
             // 向上移动
-            transform.position += velocity * Time.deltaTime;
+            transform.position += velocity * Time.deltaTime*tct.Instance.timec;
 
             // 2D抖动
             Vector2 shake = Random.insideUnitCircle * shakeStrength;
-            transform.position += new Vector3(shake.x, shake.y, 0) * Time.deltaTime;
+            transform.position += new Vector3(shake.x, shake.y, 0) * Time.deltaTime * tct.Instance.timec;
 
             yield return null;
         }

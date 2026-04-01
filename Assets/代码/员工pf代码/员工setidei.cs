@@ -57,8 +57,9 @@ public class 员工setidei : MonoBehaviour
             if(moveorstop==1)
             {
                 target.x = getrandon((int)nowroom.Left + 1, (int)nowroom.Right - 1);//获得目标position
+                setflip(target.x, transform.position.x);//反转图片？
                 ismoving = true;
-                setflip(target.x,transform.position.x);//反转图片？
+                
             }
         }else
         {
