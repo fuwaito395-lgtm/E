@@ -1,6 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using static 人数据列表;
 
@@ -11,7 +11,8 @@ public class 收容系统 : MonoBehaviour
     public List<L基本框架> 怪物数据库;       // 可用的怪物定义ScriptableObject）
     [HideInInspector] public Transform 怪物父物体;            // 场景下用于存放怪物视图的空物体
     [HideInInspector] public bool 初始化时生成视觉 = false;    // 是否在Start时Instantiate视图
-    [HideInInspector] public Sprite[] inharm=new Sprite[5]; 
+    [HideInInspector] public Sprite[] inharm=new Sprite[5];
+    
 
 
     //房间Id ->收容单元
@@ -97,21 +98,41 @@ public class 收容系统 : MonoBehaviour
             rec.nowgooutindex = _nowgoout.GetComponent<TextMeshPro>();
             rec.nowgooutindex.text = rec.怪物数据实例.数据.出逃max.ToString();
             if (rec.怪物数据实例.数据.出逃max == -1) rec.nowgooutindex.text = "N";
+
+            var _倒计时_= MapSystem.Instance.GetRoom(rec.房间Id).ob.transform.Find("倒计时");
+            var _倒计时计数_ = MapSystem.Instance.GetRoom(rec.房间Id).ob.transform.Find("倒计时文字");
+            rec._倒计时 = _倒计时_.GetComponent<倒计时>();
+            rec._倒计时.sr = rec._倒计时.gameObject.GetComponent<SpriteRenderer>();
+            rec._倒计时.tm = _倒计时计数_.gameObject.GetComponent<TextMeshPro>();
+            rec._倒计时.tm.text = "";
+            rec._倒计时.gameObject.SetActive(false);
+            
+
+
         }
     }
 
-    public void 条满()
+    public void 条满(int total)
     {
-        
-        foreach(var i in 初始收容所列表)
+        var selected = 随机选取(初始收容所列表, total);
+
+        foreach (var room in selected)
         {
-           i.怪物数据实例.出逃计数(1);
+            room._倒计时.gameObject.SetActive(true);
+            room._倒计时.startupdate(60);
         }
     }
-    
-    
+
+    public List<T> 随机选取<T>(List<T> list, int count)
+    {
+        return list.OrderBy(x => UnityEngine.Random.value)
+                   .Take(count)
+                   .ToList();
+    }
+
+
     // 通过房间Id 获取单元
-    
+
     public 收容所记录 获取单元(int 房间Id)
     {
         单元字典.TryGetValue(房间Id, out var u);

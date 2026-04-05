@@ -109,7 +109,6 @@ public class 员工perfer : MonoBehaviour
         if (this.Data.currentState == 人数据列表.ren.state.move) return;
         this.Data.ltarget = monster;
         Debug.Log(monster.nametext);
-        setat.attcd = true;
         Data.currentState = 人数据列表.ren.state.att;
     }
     public void 收到怪物离开通知(怪物实例 monster)

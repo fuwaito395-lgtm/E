@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using static MapSystem;
-using static UnityEditor.PlayerSettings;
 using static 人数据列表;
 using static 怪物实例;
 
@@ -82,7 +80,8 @@ public class 怪物漫游
             {
 
                 var spr = movedata.关联对象.GetComponent<SpriteRenderer>();
-
+                movedata.攻击提示条?.显示(movedata.nowatt.attname, movedata.nowatt.isred);
+                movedata.攻击提示条?.设置进度(0f);
                 spr.sprite = movedata.nowatt.beforeatt;
                 movedata.aud.PlayOneShot(movedata.nowatt.beforeaud);
                 movedata.stoptime += movedata.nowatt.windup;

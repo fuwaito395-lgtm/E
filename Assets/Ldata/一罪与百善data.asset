@@ -58,7 +58,7 @@ MonoBehaviour:
   - 65
   - 65
   - 65
-  "\u5DE5\u4F5C\u7ED3\u679C": 020000000500000007000000
+  "\u5DE5\u4F5C\u7ED3\u679C": 010000000400000006000000
   damegatyp: 1
   baseworksp: 4
   mindamega: 1
@@ -76,3 +76,5 @@ MonoBehaviour:
   beforegoout: {fileID: 0}
   aftergoout: {fileID: 0}
   extrasp: []
+  "\u8D44\u6599": {fileID: 11400000, guid: a47e409c8974f7749a48ef6f9bb54d7f, type: 2}
+  ds: 00000000000000000000000000000000

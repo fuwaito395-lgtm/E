@@ -24,17 +24,17 @@ public class 员工set状态 : MonoBehaviour
     {
         if(Datapfset.Data.currentState == 人数据列表.ren.state.idie)
         {
-            at.timer = 0f;
+            
             idei.ideiupdate();
 
         }else if(Datapfset.Data.currentState ==人数据列表.ren.state.move)
         {
-            at.timer = 0f;
+            
             movesr.MoveUpdate();
 
         }else if(Datapfset.Data.currentState == 人数据列表.ren.state.work)
         {
-            at.timer = 0f;
+           
             if (isfindsrs == false)
             {
                 foreach (var a in 收容系统.Instance.初始收容所列表)
@@ -56,7 +56,7 @@ public class 员工set状态 : MonoBehaviour
 
         }else if(Datapfset.Data.currentState == 人数据列表.ren.state.die)
         {
-            at.timer = 0f;
+            
             var r = Datapfset.Data;
 
             Datapfset.当前房间.e离开(Datapfset);

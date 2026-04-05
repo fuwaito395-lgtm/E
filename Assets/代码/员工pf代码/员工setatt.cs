@@ -5,23 +5,22 @@ public class 员工setatt : MonoBehaviour
 {
     [SerializeField] private 员工perfer Datapfset;
     [SerializeField] private SpriteRenderer sr;
-    public bool attcd = true;
 
     public 武器SO 起始武器;
     public 武器实例 当前武器;
 
     public 怪物实例 targetl = null;
-    public float timer = 0f;
+    public 武器攻击实例 当前攻击 = null;
+
+    public 员工perfer OwnerData => Datapfset;
 
     private void Awake()
     {
         if (Datapfset == null)
             Datapfset = GetComponent<员工perfer>();
-        
+
         if (sr == null)
             sr = GetComponent<SpriteRenderer>();
-
-        Debug.Log($"[员工setatt.Awake] Datapfset={(Datapfset == null ? "null" : "ok")} , sr={(sr == null ? "null" : "ok")}");
     }
 
     private void Start()
@@ -51,10 +50,6 @@ public class 员工setatt : MonoBehaviour
         装备武器(起始武器);
     }
 
-    
-       
-    
-
     public void 装备武器(武器SO so)
     {
         if (so == null)
@@ -68,218 +63,134 @@ public class 员工setatt : MonoBehaviour
 
         if (Datapfset == null)
         {
-            Debug.LogError("[员工setatt.装备武器] 找不到员工perfer，说明这脚本不在员工身上，或组件没挂对");
+            Debug.LogError("[员工setatt.装备武器] 找不到员工perfer");
             return;
         }
 
         当前武器 = new 武器实例(so, Datapfset);
-        timer = 0f;
-
-        Debug.Log($"[员工setatt.装备武器] 已装备武器：{so.显示名}");
+        当前攻击 = null;
     }
 
     public void attupdate()
     {
-        if (Datapfset == null)
+        if (Datapfset == null || Datapfset.Data == null) return;
+        if (tct.Instance == null) return;
+        if (tct.Instance.timec == 0) return;
+        if (当前武器 == null) return;
+
+        float dt = Time.deltaTime * tct.Instance.timec;
+
+        // 只要当前攻击还在跑，就只推进它，不重新判定本次攻击
+        if (当前攻击 != null && 当前攻击.IsRunning)
         {
-            Debug.LogError("[attupdate] Datapfset == null");
+            var next = 当前攻击.Tick(dt, this);
+
+            if (next != null)
+            {
+                当前攻击 = next;
+                return;
+            }
+
+            if (!当前攻击.IsRunning)
+                当前攻击 = null;
+
             return;
         }
 
-        if (Datapfset.Data == null)
-        {
-            Debug.LogError("[attupdate] Datapfset.Data == null，员工数据没有初始化");
-            return;
-        }
+        刷新锁定目标();
 
-        if (tct.Instance == null)
+        if (!目标有效(targetl))
         {
-            Debug.LogError("[attupdate] tct.Instance == null");
-            return;
-        }
-
-        if (tct.Instance.timec == 0)
-        {
-            return;
-        }
-
-        if (当前武器 == null)
-        {
-            Debug.LogError("[attupdate] 当前武器 == null，说明武器没有装备成功");
-            return;
-        }
-
-        if (当前武器.数据 == null)
-        {
-            Debug.LogError("[attupdate] 当前武器.数据 == null");
-            return;
-        }
-
-        if (timer >= 0f)
-        {
-            timer -= Time.deltaTime * tct.Instance.timec;
-            return;
-        }
-
-       
-        targetl = Datapfset.Data.ltarget;
-        
-
-        if (targetl == null)
-        {
+            清除目标();
             Datapfset.Data.currentState = 人数据列表.ren.state.idie;
             return;
         }
+
+        // 跨房间：进入待机，不清目标
+        if (targetl.lnowroom != Datapfset.Data.CurrentRoomId)
+        {
+            清除目标();
+            Datapfset.Data.currentState = 人数据列表.ren.state.idie;
+            return;
+        }
+
+        Datapfset.Data.currentState = 人数据列表.ren.state.att;
 
         if (targetl.关联对象 == null)
         {
-            Debug.LogError("[attupdate] targetl.关联对象 == null");
-            
-            return;
-        }
-
-        if (targetl.nowhpl <= 0)
-        {
-            targetl = null;
-            Datapfset.Data.ltarget = null;
-            return;
-        }
-
-        if (Datapfset.Data.CurrentRoomId != targetl.lnowroom)
-        {
+            清除目标();
             Datapfset.Data.currentState = 人数据列表.ren.state.idie;
-        }
-        //Debug.Log("di");
-        if(transform.position.x > targetl.关联对象.transform.position.x)
-        {
-            Datapfset.sr.flipX = false;
-        }else
-        {
-            Datapfset.sr.flipX = true;
+            return;
         }
 
-        float 距离 = Mathf.Abs(transform.position.x - targetl.关联对象.transform.position.x);
-        if (距离 > 当前武器.数据.攻击范围)
+        朝向目标();
+
+        var atk = 当前武器.选择攻击();
+        if (atk == null) return;
+
+        if (!atk.CanStart(this, targetl))
+            return;
+
+        if (!atk.IsTargetInRange(this, targetl))
         {
             Vector3 pos = transform.position;
-            pos.x = Mathf.MoveTowards(pos.x, targetl.关联对象.transform.position.x, Datapfset.Data.movesp * tct.Instance.timec * Time.deltaTime);//水平移动
+            pos.x = Mathf.MoveTowards(
+                pos.x,
+                targetl.关联对象.transform.position.x,
+                Datapfset.Data.movesp * dt
+            );
             transform.position = pos;
             return;
         }
-        if (attcd == true)
+
+        当前攻击 = atk;
+        当前攻击.StartAttack(this, targetl);
+
+        // 前摇为 0 的攻击，直接推进一帧
+        var nextAtk = 当前攻击.Tick(dt, this);
+        if (nextAtk != null)
+            当前攻击 = nextAtk;
+    }
+
+    private void 刷新锁定目标()
+    {
+        if (目标有效(targetl))
         {
-            attcd = false;
-            timer =当前武器.数据.攻击间隔;
+            Datapfset.Data.ltarget = targetl;
             return;
         }
-        //Debug.Log("cdi");
-        开始攻击();
+
+        if (目标有效(Datapfset.Data.ltarget))
+        {
+            targetl = Datapfset.Data.ltarget;
+            return;
+        }
+
+        targetl = null;
     }
 
-    private void 开始攻击()
+    private bool 目标有效(怪物实例 m)
     {
-        if (当前武器 == null || 当前武器.数据 == null) return;
-
-        attcd = true;
-        当前武器.OnAttackStart(this.targetl,this.Datapfset);
-
-        int hitCount = 0;
-        //Debug.Log("stat");
-        if (当前武器.数据.是否范围伤害)
-        {
-            hitCount = 范围攻击();
-        }
-        else
-        {
-            hitCount = 单体攻击(targetl) ? 1 : 0;
-        }
-
-        当前武器.OnAttackEnd(hitCount,targetl, this.Datapfset);
-    }
-
-    private int 范围攻击()
-    {
-        int hitCount = 0;
-        if (Datapfset.Data == null) return 0;
-
-        float 范围 = 当前武器.数据.范围半径;
-        int roomId = Datapfset.Data.CurrentRoomId;
-
-        if (Datapfset.Data.linroom != null)
-        {
-            foreach (var m in Datapfset.Data.linroom)
-            {
-                if (m == null || m.关联对象 == null || m.nowhpl <= 0) continue;
-                if (m.lnowroom != roomId) continue;
-
-                float dx = Mathf.Abs(transform.position.x - m.关联对象.transform.position.x);
-                if (dx > 范围) continue;
-
-                if (攻击怪物(m))
-                    hitCount++;
-            }
-        }
-
-        if (当前武器.数据.是否误伤友方 && 人数据列表.intance != null)
-        {
-            var roomEmployees = Datapfset.当前房间.当前员工;
-            foreach (var r in roomEmployees)
-            {
-                if (r == null || r.Data.关联对象 == null) continue;
-                if (r == Datapfset) continue;
-
-                float dx = Mathf.Abs(transform.position.x - r.Data.关联对象.transform.position.x);
-                if (dx > 范围) continue;
-
-                if (攻击员工(r.Data))
-                    hitCount++;
-            }
-        }
-
-        return hitCount;
-    }
-
-    private bool 单体攻击(怪物实例 m)
-    {
-        if (m == null || m.关联对象 == null) return false;
+        if (m == null) return false;
+        if (m.关联对象 == null) return false;
         if (m.nowhpl <= 0) return false;
-        if (m.lnowroom != Datapfset.Data.CurrentRoomId) return false;
-        //Debug.Log("da");
-        float 距离 = Mathf.Abs(transform.position.x - m.关联对象.transform.position.x);
-        if (距离 > 当前武器.数据.实际攻击范围) return false;
-
-        return 攻击怪物(m);
-    }
-
-    private bool 攻击怪物(怪物实例 m)
-    {
-        float damage = 当前武器.计算最终伤害(当前武器.数据.基础伤害,m, this.Datapfset);
-        //Debug.Log("calda");
-        m.calfinaldamega(
-            damage,
-            当前武器.数据.伤害类型,
-            Datapfset,
-            m,
-            null
-        );
-
-        当前武器.通知命中(m, damage, false, this.Datapfset);
         return true;
     }
 
-    private bool 攻击员工(人数据列表.ren r)
+    private void 清除目标()
     {
-        if (r == null || r.关联对象 == null) return false;
-        if (r.hp <= 0) return false;
+        targetl = null;
+        if (Datapfset != null && Datapfset.Data != null)
+            Datapfset.Data.ltarget = null;
+    }
 
-        float damage = 当前武器.计算最终伤害(当前武器.数据.基础伤害,null, this.Datapfset);
-        r.hp = Mathf.Max(0, r.hp - Mathf.CeilToInt(damage));
-        if (r.hp <= 0)
-        {
-            r.currentState = 人数据列表.ren.state.die;
-        }
+    private void 朝向目标()
+    {
+        if (sr == null || targetl == null || targetl.关联对象 == null) return;
 
-        当前武器.通知命中(null, damage, true, this.Datapfset);
-        return true;
+        if (transform.position.x > targetl.关联对象.transform.position.x)
+            sr.flipX = false;
+        else
+            sr.flipX = true;
     }
 }

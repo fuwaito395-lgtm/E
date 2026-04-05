@@ -23,6 +23,15 @@ public class 完成回复机制SO : 工作机制SO
                 nowren.Data.mp += 5;
                 nowren.calfinaldamega(-5, class_damage.damegatype.mind, nowren, nowL.怪物数据实例, work);
             }
+            if(work.totalsecc==10)
+            {
+                foreach(var ren in 人数据列表.intance.yuanggong)
+                {
+                    ren.mp += 5;
+                    var ins = ren.关联对象.GetComponent<员工perfer>();
+                    ins.calfinaldamega(-5, class_damage.damegatype.mind, nowren, nowL.怪物数据实例, work);
+                }
+            }
         }
     }
 }

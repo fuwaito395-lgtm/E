@@ -44,6 +44,7 @@ public class 员工setwork : MonoBehaviour
         
         if (!已调用工作开始)// 工作开始钩子只调用一次
         {
+            a._倒计时.endupdate();
             Datapfwork.sr.flipX = false;
             a.怪物数据实例.WorkStart(Datapfwork.Data.nextwork, Datapfwork, a, this);
             已调用工作开始 = true;
@@ -111,7 +112,7 @@ public class 员工setwork : MonoBehaviour
             工作差中良优 = 3;
             Debug.Log($"员工 {gameObject.name}：总体工作,优");
         }
-
+        a.怪物数据实例.数据.ds[this.Datapfwork.Data.seworktype-1] += totalsecc;
         a.怪物数据实例.lastworkfinish(Datapfwork,a,this);
         claerandreturn();
     }

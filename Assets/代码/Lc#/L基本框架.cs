@@ -5,12 +5,8 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
-using static class_damage;
 using static MapSystem;
-using static UnityEditor.PlayerSettings;
-using static UnityEngine.GraphicsBuffer;
-using static UnityEngine.RuleTile.TilingRuleOutput;
-using static 人数据列表;
+
 
 [CreateAssetMenu(menuName = "怪物数据")]
 public class L基本框架 : ScriptableObject//静态数据
@@ -43,6 +39,9 @@ public class L基本框架 : ScriptableObject//静态数据
     public Sprite beforegoout = null;
     public Sprite aftergoout=null;
     public Sprite[] extrasp;
+    public 怪物资料SO 资料;
+    public int[] ds = new int[4];
+
 }
 
 [System.Serializable]
@@ -85,13 +84,15 @@ public class 怪物实例
     public GameObject Tragetrenobj = null;
     public List<员工perfer> roomren = new List<员工perfer>();
     public allatttime allattttimel;
-    public GameObject 血条;
-    public SpriteRenderer spriter;
-    public AudioSource aud;
+    [HideInInspector] public GameObject 血条;
+    [HideInInspector] public GameObject 攻击提示条ob;
+    [HideInInspector] public SpriteRenderer spriter;
+    [HideInInspector] public AudioSource aud;
 
     [HideInInspector] public TextMeshPro bloodtext;
     [HideInInspector] public TextMeshPro nametext;
     [HideInInspector] public 血条显示 bloodphycis;
+    public 怪物攻击提示物体 攻击提示条;
 
     public Dictionary<string, BuffBase> activeBuffs = new Dictionary<string, BuffBase>();
     public List<string> keysToRemove = new List<string>();
@@ -164,6 +165,13 @@ public class 怪物实例
         }
         if (nowhpl <= 0)
         {
+            var oldRoom = 当前房间;   // 先存下来
+            if (oldRoom != null)
+            {
+                oldRoom.怪物离开(this);
+            }
+
+            解绑房间(oldRoom);
             reset();
             return;
         }
@@ -180,7 +188,11 @@ public class 怪物实例
         keysToRemove.Clear();
         if (stoptime > 0)
         {
-            if (stoptime < 0) stoptime = 0;
+            if (allattttimel == allatttime.windup && nowatt != null && nowatt.windup > 0f)
+            {
+                float p = 1f - Mathf.Clamp01(stoptime / nowatt.windup);
+                攻击提示条?.设置进度(p);
+            }
 
             if (怪物漫游运行时 != null && nowLtype >= 0 && nowLtype < 怪物漫游运行时.Count && 怪物漫游运行时[nowLtype] != null)
             {
@@ -188,7 +200,7 @@ public class 怪物实例
             }
             return;
         }
-        
+
 
         keysToRemove.Clear();
         if (!IsTargetValid(targetren))
@@ -197,6 +209,7 @@ public class 怪物实例
         }
         if (allattttimel == allatttime.windup)
         {
+            攻击提示条?.隐藏();
             roam.checkbuffwhenatt(关联对象, this);
             roam.caliswindup(关联对象, this);
             
@@ -206,6 +219,7 @@ public class 怪物实例
 
         if (allattttimel == allatttime.post)
         {
+            攻击提示条?.隐藏();
             roam.calispost(关联对象, this);
             needchangetarget = true;
             return;
@@ -285,8 +299,8 @@ public class 怪物实例
 
         var spr = 关联对象.GetComponent<SpriteRenderer>();
         spriter = spr;
-        var au= 关联对象.GetComponent<AudioSource>();
-        aud = au;
+        aud = 关联对象.GetComponent<AudioSource>();
+
         if (this.数据.beforegoout != null)
         {
             spr.sprite = this.数据.beforegoout;
@@ -341,18 +355,27 @@ public class 怪物实例
 
         bloodphycis = 血条.transform.Find("血条显示").GetComponent<血条显示>();
 
+        攻击提示条ob = UnityEngine.Object.Instantiate(L插件.instance.tip条, 关联对象.transform);
+        攻击提示条ob.transform.localPosition = new Vector3(0, 2f, 0);
+        攻击提示条 = 攻击提示条ob.GetComponent<怪物攻击提示物体>();
+
+        if (攻击提示条 == null)
+        {
+            Debug.LogError("tip条 prefab 上没有挂 怪物攻击提示物体 脚本");
+        }
         当前房间 = MapSystem.Instance.GetRoom(所在收容所.房间Id).ob.GetComponent<房间>();
     }
 
     public void 出逃计数(int v = 1)
     {
-        if (已出逃) return;
+        if (已出逃|| 数据.出逃max==-1) return;
 
         now出逃 -= v;
         Debug.Log($"[实例] {数据.显示名} 出逃点数减少 => {now出逃}");
         this.所在收容所.nowgooutindex.text =now出逃.ToString();
-        if (now出逃 == 0)
+        if (now出逃 <= 0)
         {
+            this.所在收容所.nowgooutindex.text ="0";
             标记出逃();
         }
     }
@@ -363,13 +386,15 @@ public class 怪物实例
         Debug.Log(this.数据.name + "镇压成功");
         now出逃 = 数据.出逃max;
         已出逃 = false;
+        //当前房间.怪物离开(this);
         UnityEngine.Object.Destroy(this.关联对象);
         生成怪物视图(收容系统.Instance.获取单元(收容系统.Instance.getroomidbylid(this.数据.怪物Id)), this.数据);
         //更新出逃L的update.Instance.Remove怪物(this);
         lpath  = new List<Room>();
         pathIndex = 0;
         更新出逃L的update.Instance.removel(this);
-        当前房间.怪物离开(this);
+        
+
     }
 
     bool IsTargetValid(员工perfer t)
@@ -392,6 +417,7 @@ public class 怪物实例
 
     public virtual void WorkStart(int 工作类型, 员工perfer 员工, 收容所记录 nowL, 员工setwork work)
     {
+        条.instance.whenworkdone();
         foreach (var rt in 机制运行时列表) rt.OnWorkStart( 员工, nowL,  work);//通知每个运行时机制开始
         nowL.nowwork.text = "0";
     }
@@ -473,8 +499,7 @@ public class 怪物实例
     public virtual void lastworkfinish(员工perfer 员工, 收容所记录 nowL,员工setwork work)
     {
         foreach (var rt in 机制运行时列表) rt.onlastworkfinish(员工, nowL, work);
-        条.instance.whenworkdone();
-
+       
     }
 
     public void 添加机制(工作机制SO so)// 便捷 API：添加/删除/替换机制（运行时）

@@ -21,6 +21,7 @@ public class 工作亡蝶葬仪 : 工作机制SO
             {
                 nowL.怪物数据实例.出逃计数(1);
             }
+            
         }
         public override float ModifyChance(float 当前概率, 员工perfer 员工, 收容所记录 nowL, 员工setwork work)
         {

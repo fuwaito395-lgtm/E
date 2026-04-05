@@ -2,9 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
-using static UnityEngine.GraphicsBuffer;
-
 public class 员工setidei : MonoBehaviour
 {
     [HideInInspector] private 员工perfer Datapfset;

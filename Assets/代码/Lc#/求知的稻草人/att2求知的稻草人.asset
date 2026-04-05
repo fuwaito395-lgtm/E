@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c19f2e26e6a8764781f3f670a3b3665, type: 3}
   m_Name: "att2\u6C42\u77E5\u7684\u7A3B\u8349\u4EBA"
   m_EditorClassIdentifier: 
+  attname: "\u7D22 \u53D6 \u667A \u6167"
+  isred: 1
   attackId: 
   description: 
   prop: 0
-  windup: 2
+  windup: 1
   hitTime: 3
-  post: 10
+  post: 1
   beforerange: 5
   afterrange: 5
   damage: 75

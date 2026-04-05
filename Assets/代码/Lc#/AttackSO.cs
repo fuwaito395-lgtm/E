@@ -5,6 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class AttackSO : ScriptableObject
 {
+    public string attname="";
+    public bool isred=false;
     public string attackId;
     public string description;
     public int prop;

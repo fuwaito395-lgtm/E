@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c19f2e26e6a8764781f3f670a3b3665, type: 3}
+  m_Name: att0.0 2
+  m_EditorClassIdentifier: 
+  attackId: 
+  description: 
+  prop: 0
+  windup: 0.08
+  hitTime: 0.2
+  post: 4
+  beforerange: 100
+  afterrange: 100
+  damage: 10
+  _Damage: 2
+  IsflipX: 1
+  typerange: 0
+  nextatt: {fileID: 0}
+  beforeatt: {fileID: 0}
+  afteratt: {fileID: 0}
+  beforeaud: {fileID: 0}
+  afteraud: {fileID: 0}

@@ -12,7 +12,7 @@ public class 点击控制器 : MonoBehaviour
     [SerializeField] GameObject mainpanel;
     [SerializeField] GameObject closemask;
     [SerializeField] GameObject secondpanel;
-    
+    [SerializeField] GameObject 资料panel;
 
     private bool canClose = false;
     int wordtype;
@@ -141,5 +141,10 @@ public class 点击控制器 : MonoBehaviour
         closemask.SetActive(false);
         secondpanel.SetActive(false);
         nowsrsid = -1;
+    }
+    public void onclick资料()
+    {
+        资料panel.SetActive(true);
+        信息.instance.refreshdata(nowsrsid);
     }
 }

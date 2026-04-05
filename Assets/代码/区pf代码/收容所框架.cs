@@ -12,6 +12,7 @@ public class 收容所记录
     [HideInInspector] public TextMeshPro nowwork;
     [HideInInspector] public SpriteRenderer harmsp;
     [HideInInspector] public TextMeshPro nowgooutindex;
+    [HideInInspector] public 倒计时 _倒计时;
 }
 
 

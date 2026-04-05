@@ -11,4 +11,5 @@ public class L插件 : MonoBehaviour
     }
     public GameObject blood;
     public GameObject 范围att;
+    public GameObject tip条;
 }

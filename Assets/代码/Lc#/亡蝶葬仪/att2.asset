@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c19f2e26e6a8764781f3f670a3b3665, type: 3}
   m_Name: att2
   m_EditorClassIdentifier: 
+  attname: "\u6C89 \u75DB \u54C0 \u60BC"
+  isred: 1
   attackId: 
   description: 
   prop: 1

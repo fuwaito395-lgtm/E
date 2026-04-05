@@ -110,8 +110,13 @@ public class 房间 : MonoBehaviour
 
     public void 怪物离开(怪物实例 monster)
     {
-        if (monster == null) return;
-        for (int i = 当前员工.Count - 1; i >= 0; i--)
+        if (monster == null)
+        {
+            Debug.Log("L=null");
+            return;
+        }
+        linroom.Remove(monster);
+            for (int i = 当前员工.Count - 1; i >= 0; i--)
         {
             var emp = 当前员工[i];
             if (emp == null)
@@ -119,7 +124,6 @@ public class 房间 : MonoBehaviour
                 当前员工.RemoveAt(i);
                 continue;
             }
-
             emp.收到怪物离开通知(monster);
         }
     }
